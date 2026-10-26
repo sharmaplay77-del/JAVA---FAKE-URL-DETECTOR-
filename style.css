@@ -1,0 +1,531 @@
+
+/* ==============================
+   1. GLOBAL SETTINGS
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --background: #080d1a;
+    --card-background: #111a2e;
+    --primary: #00e5ff;
+    --secondary: #7c4dff;
+    --text: #f1f5f9;
+    --muted: #a7b2c5;
+    --border: #26344d;
+    --danger: #ff4d6d;
+    --success: #00e676;
+    --warning: #ffca28;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+/* ==============================
+   2. NAVIGATION BAR
+============================== */
+
+.navbar {
+    width: 100%;
+    min-height: 75px;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #0c1425;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.navbar nav a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--primary);
+}
+
+
+/* ==============================
+   3. HOME / HERO SECTION
+============================== */
+
+.hero {
+    min-height: 510px;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(0, 229, 255, 0.13),
+            transparent 55%
+        ),
+        var(--background);
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero h1::first-letter {
+    color: var(--primary);
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+
+/* ==============================
+   4. BUTTONS
+============================== */
+
+.btn,
+button {
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 24px;
+    background: var(--primary);
+    color: #06101a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover,
+button:hover {
+    background: #74f3ff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 229, 255, 0.2);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ==============================
+   5. COMMON SECTION SETTINGS
+============================== */
+
+.section {
+    padding: 75px 7%;
+    text-align: center;
+    scroll-margin-top: 90px;
+}
+
+.section h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.section-description {
+    color: var(--muted);
+    margin-bottom: 35px;
+}
+
+
+/* ==============================
+   6. URL SCANNER
+============================== */
+
+.scanner-box {
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 30px;
+    background: var(--card-background);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.scanner-box label,
+.report-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.scanner-box input,
+.report-form input,
+.report-form select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    background: #080f20;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+}
+
+.scanner-box input:focus,
+.report-form input:focus,
+.report-form select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.12);
+}
+
+.scanner-box input::placeholder,
+.report-form input::placeholder {
+    color: #77849b;
+}
+
+.scanner-box button {
+    width: 100%;
+}
+
+#message,
+#reportMessage {
+    margin-top: 15px;
+    color: var(--primary);
+    overflow-wrap: anywhere;
+}
+
+
+/* ==============================
+   7. SCAN RESULT / REPORT
+============================== */
+
+.result-box {
+    max-width: 750px;
+    margin: 30px auto 0;
+    padding: 30px;
+    text-align: left;
+    background: var(--card-background);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    overflow-wrap: anywhere;
+}
+
+.result-box h3 {
+    color: var(--primary);
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.result-box h4 {
+    margin: 20px 0 10px;
+}
+
+.result-box p {
+    margin-bottom: 12px;
+}
+
+#riskScore,
+#riskStatus {
+    font-weight: bold;
+}
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background: #26344d;
+    border-radius: 20px;
+    margin: 15px 0 25px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: var(--success);
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#findingsList {
+    padding-left: 25px;
+}
+
+#findingsList li {
+    margin-bottom: 8px;
+    color: var(--muted);
+}
+
+.disclaimer {
+    margin-top: 25px;
+    padding: 12px;
+    border-left: 3px solid var(--warning);
+    background: rgba(255, 202, 40, 0.06);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* ==============================
+   8. HOW IT WORKS / FEATURE CARDS
+============================== */
+
+.feature-container,
+.alert-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.feature-card,
+.alert-card {
+    padding: 28px 22px;
+    text-align: left;
+    background: var(--card-background);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.feature-card:hover,
+.alert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.feature-card h3,
+.alert-card h3 {
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+.feature-card p,
+.alert-card p {
+    color: var(--muted);
+}
+
+
+/* ==============================
+   9. SCAN HISTORY TABLE
+============================== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 30px 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    min-width: 550px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background: #15233b;
+}
+
+th,
+td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    overflow-wrap: anywhere;
+}
+
+th {
+    color: var(--primary);
+}
+
+td {
+    color: var(--muted);
+}
+
+tbody tr:hover {
+    background: rgba(0, 229, 255, 0.04);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.secondary-btn:hover {
+    background: var(--primary);
+    color: #06101a;
+}
+
+
+/* ==============================
+   10. SCAM ALERT ZONE
+============================== */
+
+.alert-card {
+    border-top: 3px solid var(--danger);
+}
+
+.alert-card h3 {
+    color: #ff718a;
+}
+
+
+/* ==============================
+   11. REPORT A SCAM FORM
+============================== */
+
+.report-form {
+    max-width: 650px;
+    margin: 30px auto 0;
+    padding: 30px;
+    text-align: left;
+    background: var(--card-background);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.report-form select {
+    cursor: pointer;
+}
+
+.report-form button {
+    width: 100%;
+}
+
+
+/* ==============================
+   12. FOOTER
+============================== */
+
+.footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: #0c1425;
+    border-top: 1px solid var(--border);
+}
+
+.footer p {
+    margin: 7px 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.footer p:first-child {
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   13. RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar nav {
+        justify-content: center;
+    }
+
+    .feature-container,
+    .alert-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .navbar nav {
+        gap: 12px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .hero {
+        min-height: 400px;
+        padding: 70px 20px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 55px 5%;
+    }
+
+    .section h2 {
+        font-size: 26px;
+    }
+
+    .scanner-box,
+    .result-box,
+    .report-form {
+        padding: 20px;
+    }
+
+    .feature-container,
+    .alert-container {
+        grid-template-columns: 1fr;
+    }
+}

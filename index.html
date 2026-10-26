@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fake URL Detector</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">🛡️ Fake URL Detector</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#scanner">URL Scanner</a>
+            <a href="#history">Scan History</a>
+            <a href="#scam-alerts">Scam Alerts</a>
+            <a href="#report">Report Scam</a>
+        </nav>
+    </header>
+
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <h1>Detect Fake URLs Before You Click</h1>
+
+            <p>
+                Scan suspicious links and check their potential risk
+                using our rule-based URL detection system.
+            </p>
+
+            <a href="#scanner" class="btn">Scan a URL</a>
+        </div>
+
+    </section>
+
+
+    <!-- URL Scanner Section -->
+    <section class="section" id="scanner">
+
+        <h2>🔍 URL Scanner</h2>
+
+        <p class="section-description">
+            Enter a URL below to check for suspicious characteristics.
+        </p>
+
+        <div class="scanner-box">
+
+            <form id="scanForm">
+
+                <label for="urlInput">Enter Website URL</label>
+
+                <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://example.com"
+                    autocomplete="url"
+                    required
+                >
+
+                <button type="submit" id="scanButton">
+                    Scan URL
+                </button>
+
+            </form>
+
+            <p id="message" role="status" aria-live="polite"></p>
+
+        </div>
+
+
+        <!-- Scan Result -->
+        <div class="result-box" id="resultBox" hidden>
+
+            <h3>📊 Scan Report</h3>
+
+            <p>
+                <strong>Scanned URL:</strong>
+                <span id="scannedUrl"></span>
+            </p>
+
+            <p>
+                <strong>Risk Score:</strong>
+                <span id="riskScore">0/100</span>
+            </p>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="riskBar"></div>
+            </div>
+
+            <p>
+                <strong>Risk Status:</strong>
+                <span id="riskStatus">Not scanned</span>
+            </p>
+
+            <h4>Detection Details</h4>
+
+            <ul id="findingsList">
+                <li>Scan a URL to view the report.</li>
+            </ul>
+
+            <p class="disclaimer">
+                This tool uses rule-based checks. Its result is an estimate,
+                not a guarantee that a website is safe or malicious.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- How It Works Section -->
+    <section class="section how-section" id="how-it-works">
+
+        <h2>⚙️ How It Works</h2>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+                <h3>1. Enter URL</h3>
+                <p>Enter the website link you want to check.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>2. Analyze URL</h3>
+                <p>The system checks for suspicious URL patterns.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>3. View Report</h3>
+                <p>Review the estimated risk score and findings.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Scan History Section -->
+    <section class="section" id="history">
+
+        <h2>🕘 Scan History</h2>
+
+        <p class="section-description">
+            View URLs scanned during your previous sessions.
+        </p>
+
+        <div class="table-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>Risk Score</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyTable">
+                    <tr>
+                        <td colspan="4">No scan history available.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <button type="button" id="clearHistoryButton" class="secondary-btn">
+            Clear History
+        </button>
+
+    </section>
+
+
+    <!-- Scam Alert Zone -->
+    <section class="section" id="scam-alerts">
+
+        <h2>🚨 Scam Alert Zone</h2>
+
+        <p class="section-description">
+            Learn about common warning signs found in suspicious links.
+        </p>
+
+        <div class="alert-container">
+
+            <div class="alert-card">
+                <h3>🎁 Fake Prize Links</h3>
+                <p>
+                    Be cautious of links claiming you have won a prize
+                    and asking for personal information.
+                </p>
+            </div>
+
+            <div class="alert-card">
+                <h3>🏦 Banking Scams</h3>
+                <p>
+                    Do not enter banking passwords or OTPs on websites
+                    reached through unexpected messages.
+                </p>
+            </div>
+
+            <div class="alert-card">
+                <h3>🔑 Account Verification</h3>
+                <p>
+                    Unexpected account suspension or verification messages
+                    may be attempts to steal your credentials.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Report a Scam Section -->
+    <section class="section" id="report">
+
+        <h2>📢 Report a Suspicious URL</h2>
+
+        <p class="section-description">
+            Submit a suspicious link for review in this project.
+        </p>
+
+        <form id="reportForm" class="report-form">
+
+            <label for="reportUrl">Suspicious URL</label>
+
+            <input
+                type="text"
+                id="reportUrl"
+                placeholder="Enter suspicious URL"
+                required
+            >
+
+            <label for="reportReason">Reason for Reporting</label>
+
+            <select id="reportReason" required>
+                <option value="">Select a reason</option>
+                <option value="Phishing">Possible phishing</option>
+                <option value="Fake Prize">Fake prize or giveaway</option>
+                <option value="Banking Scam">Possible banking scam</option>
+                <option value="Suspicious Link">Other suspicious link</option>
+            </select>
+
+            <button type="submit">Submit Report</button>
+
+            <p id="reportMessage" role="status" aria-live="polite"></p>
+
+        </form>
+        
+<!-- View Submitted Scam Reports -->
+<section id="scamReportsSection">
+    <h2>Submitted Scam Reports</h2>
+
+    <button type="button" id="loadReportsButton">
+        View Scam Reports
+    </button>
+
+    <p id="reportsMessage"></p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Report Details</th>
+                </tr>
+            </thead>
+            <tbody id="scamReportsTable">
+                <tr>
+                    <td>Click "View Scam Reports" to load reports.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>🛡️ Fake URL Detector</p>
+
+        <p>
+            A student project for identifying potentially suspicious URLs.
+        </p>
+
+        <p>&copy; 2026 Fake URL Detector | Educational Purpose</p>
+
+    </footer>
+
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+```

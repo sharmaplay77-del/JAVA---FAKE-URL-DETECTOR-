@@ -1,0 +1,8 @@
+{"url":"http://secure-login-verify-account-example.com","reason":"Fake Prize","date":"10/25/2026, 10:10:33 AM"}
+{"url":"http://secure-login-verify-account-example.com","reason":"Fake Prize","date":"10/25/2026, 10:27:30 AM"}
+{"url":"http://secure-login-verify-account-example.com","reason":"Fake Prize","date":"10/25/2026, 10:27:39 AM"}
+{"url":"http://example.com","reason":"Fake Prize","date":"10/25/2026, 10:27:46 AM"}
+{"url":"http://suspicious-prize.example.com","reason":"Banking Scam","date":"10/25/2026, 10:36:15 AM"}
+{"url":"http://suspicious-prize.example.com","reason":"Fake Prize","date":"10/25/2026, 10:36:31 AM"}
+{"url":"http://example.com","reason":"Suspicious Link","date":"10/25/2026, 10:38:16 AM"}
+{"url":"http://example.com","reason":"Phishing","date":"10/25/2026, 10:38:26 AM"}
